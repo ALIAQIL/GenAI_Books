@@ -1,0 +1,11 @@
+# .gitignore
+
+# 1. Ignore virtual environment folders
+venv/
+env/
+.env
+
+# 2. Ignore Python cache files
+__pycache__/
+*.pyc
+
