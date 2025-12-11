@@ -70,27 +70,24 @@ for pdf_loader in loaders:
     try:
         file_name = os.path.basename(pdf_loader.file_path)
         base_name = os.path.splitext(file_name)[0]
-        print(f"\n--- Processing: {file_name} ---")
+
 
         documents = pdf_loader.load()
         full_text = "\n".join([doc.page_content for doc in documents])
         
-        print("   1. Generating 'Flash' summary (1 paragraph)...")
         short_result = chain_short.invoke({"text": full_text})
         with open(f"{base_name}_1_flash.md", "w", encoding="utf-8") as f:
             f.write(short_result)
 
-        print("   2. Generating chapter summaries...")
         blinkist_result = chain_blinkist.invoke({"text": full_text})
         with open(f"{base_name}_2_chapters.md", "w", encoding="utf-8") as f:
             f.write(blinkist_result)
 
-        print("   3. Generating long executive summary...")
         long_result = chain_long.invoke({"text": full_text})
         with open(f"{base_name}_3_summary.md", "w", encoding="utf-8") as f:
             f.write(long_result)
 
-        print(f"Done for {file_name}. 3 files created.")
+
 
     except Exception as e:
         print(f"Error on {file_name}: {e}")
