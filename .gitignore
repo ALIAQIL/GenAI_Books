@@ -1,0 +1,21 @@
+# .gitignore
+
+# 1. Ignore virtual environment folders
+venv/
+env/
+.env
+
+# 2. Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Local configuration and generated files
+.env
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+dist/
+*.egg-info/
+outputs/
+data/indexes/

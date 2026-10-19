@@ -1,0 +1,44 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "bookwise"
+version = "0.1.0"
+description = "A Gemini-powered CLI for summarizing, translating, and querying documents."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "faiss-cpu>=1.8.0",
+    "gTTS>=2.5.0",
+    "langchain-classic>=1.0.0",
+    "langchain-community>=0.3.0",
+    "langchain-core>=0.3.0",
+    "langchain-google-genai>=2.0.0",
+    "pypdf>=5.0.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-cov>=5.0.0",
+    "ruff>=0.6.0",
+]
+
+[project.scripts]
+bookwise = "bookwise.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/bookwise"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--cov=bookwise --cov-report=term-missing"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
