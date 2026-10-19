@@ -155,9 +155,3 @@ GitHub Actions runs Ruff and pytest on pushes and pull requests.
 - RAG answers are grounded in retrieved text, but generated answers should still be reviewed for high-stakes use.
 - The included books are sample inputs and should be used according to their copyright licenses.
 - Generated artifacts are ignored by default; curated examples are stored separately under `data/examples/`.
-
-## CV-ready project description
-
-Built a modular, Gemini-powered document intelligence CLI that extracts and summarizes PDFs/text, generates structured Q&A, translates knowledge artifacts, and answers questions across mixed document collections with FAISS retrieval. Designed reusable workflows behind a provider boundary, added typed configuration, offline tests, CLI ergonomics, and automated CI.
-
-Technologies: Python, Gemini, LangChain, FAISS, PDF/text processing, prompt engineering, CLI design, automated testing, and GitHub Actions.
